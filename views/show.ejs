@@ -1,0 +1,21 @@
+<% include ./partials/header %>
+
+<div class="down">
+    <div class="container border">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <img src="<%= data.image %>" alt="">
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <h2><%= data.title %></h2>
+                <p><%= data.description %></p>
+                <a href="/blogs/<%=data.id%>/edit" class="btn btn-warning">Edit</a>
+                <form action="/blogs/<%= data.id %>?_method=DELETE" method="POST" class="button">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ./partials/footer %>

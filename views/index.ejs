@@ -1,0 +1,26 @@
+<% include ./partials/header %>
+
+<div class="pic">
+    <div class="banner"> <h2>Not all who wander are lost.</h2> </div>    
+</div>
+
+<div class="down">
+    <div class="container border">
+        <% data.forEach(function(info) { %>
+            <div class="row"> 
+                <div class="col-md-4">
+                    <img src="<%=info.image%>">
+                </div>
+                <div class="col-md-8">
+                    <h1><%=info.title%></h1>
+                    <p><%=info.description%></p> 
+                    <a href="/blogs/<%=info._id%>">Read more</a>  
+                </div>
+            </div>
+            <hr>
+            <% }); %>
+        </ul>
+    </div>
+</div>
+
+<% include ./partials/footer %>
