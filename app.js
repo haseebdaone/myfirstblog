@@ -4,7 +4,7 @@ var express = require("express"),
     mongoose = require("mongoose"),
     path = require("path"),
     app = express();
-
+    Blog = require("./models/blogs");
 
 mongoose.connect("mongodb://localhost/my-blog");
 
@@ -12,14 +12,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
-
-var blogSchema = new mongoose.Schema({
-    title: String,
-    image: String,
-    description: String
-});
-
-var Blog = mongoose.model("blog", blogSchema);
 
 app.get("/", function(req, res){
     res.redirect("/blogs");
