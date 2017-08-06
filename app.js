@@ -5,6 +5,7 @@ var express = require("express"),
     path = require("path"),
     app = express();
     Blog = require("./models/blogs");
+    seedDb = require("./seeds");
 
 mongoose.connect("mongodb://localhost/my-blog");
 
@@ -12,6 +13,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
+seedDb();
 
 app.get("/", function(req, res){
     res.redirect("/blogs");
