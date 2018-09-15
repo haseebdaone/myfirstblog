@@ -7,6 +7,12 @@ var express = require("express"),
     Blog = require("./models/blogs");
     seedDb = require("./seeds");
 
+var port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+
+
 mongoose.connect("mongodb://localhost/my-blog");
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -29,7 +35,7 @@ app.get("/blogs", function(req, res){
             res.render("index", {data: blogs});
         }
     });
-}); 
+});
 
 app.post("/blogs", function(req, res){
     Blog.create(req.body.blog, function(err, newBlog){
@@ -84,6 +90,6 @@ app.delete("/blogs/:id", function(req,res){
     })
 });
 
-app.listen(3000, function(req, res){
-    console.log("Server has started on port: 3000");
+app.listen(port, function(req, res){
+    console.log("Server has started");
 });
