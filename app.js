@@ -12,8 +12,8 @@ if (port == null || port == "") {
   port = 3000;
 }
 
-
-mongoose.connect("mongodb://localhost/my-blog");
+// 
+// mongoose.connect("mongodb://localhost/my-blog");
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.set("view engine", "ejs");
