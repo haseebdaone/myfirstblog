@@ -35,8 +35,6 @@ app.get("/blogs", function(req, res){
             res.render("index", {data: blogs});
         }
     });
-    res.send('Hello');
-
 });
 
 app.post("/blogs", function(req, res){
