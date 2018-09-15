@@ -12,7 +12,7 @@ if (port == null || port == "") {
   port = 3000;
 }
 
-// 
+//
 // mongoose.connect("mongodb://localhost/my-blog");
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -21,20 +21,22 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 
 // Generates seeded data
-seedDb();
+// seedDb();
 
 app.get("/", function(req, res){
     res.redirect("/blogs");
 });
 
 app.get("/blogs", function(req, res){
-    Blog.find({}, function(err, blogs){
-        if(err){
-            res.send("error!");
-        } else {
-            res.render("index", {data: blogs});
-        }
-    });
+    // Blog.find({}, function(err, blogs){
+    //     if(err){
+    //         res.send("error!");
+    //     } else {
+    //         res.render("index", {data: blogs});
+    //     }
+    // });
+    res.send('Hello');
+
 });
 
 app.post("/blogs", function(req, res){
