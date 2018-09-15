@@ -28,13 +28,13 @@ app.get("/", function(req, res){
 });
 
 app.get("/blogs", function(req, res){
-    // Blog.find({}, function(err, blogs){
-    //     if(err){
-    //         res.send("error!");
-    //     } else {
-    //         res.render("index", {data: blogs});
-    //     }
-    // });
+    Blog.find({}, function(err, blogs){
+        if(err){
+            res.send("error!");
+        } else {
+            res.render("index", {data: blogs});
+        }
+    });
     res.send('Hello');
 
 });
