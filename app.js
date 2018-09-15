@@ -12,8 +12,8 @@ if (port == null || port == "") {
   port = 3000;
 }
 
-//
-// mongoose.connect("mongodb://localhost/my-blog");
+
+mongoose.connect(process.env.MONGODB_URI);
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.set("view engine", "ejs");
@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 
 // Generates seeded data
-// seedDb();
+seedDb();
 
 app.get("/", function(req, res){
     res.redirect("/blogs");
